@@ -47,3 +47,20 @@ class InventoryControl:
                 quantities_to_buy[ingredient] = quantity_to_buy
 
         return quantities_to_buy
+
+    def get_available_dishes(self):
+        available_dishes = set()
+
+        for (dish, ingredients) in self.INGREDIENTS.items():
+            is_dish_available = True
+            
+            for ingredient in ingredients:
+                if is_dish_available == True:
+                    if self.inventory[ingredient] == 0:
+                        print(ingredient, 'zerou')
+                        is_dish_available = False
+
+            if is_dish_available == True:
+                available_dishes.add(dish)
+
+        return available_dishes
