@@ -53,14 +53,16 @@ class InventoryControl:
 
         for (dish, ingredients) in self.INGREDIENTS.items():
             is_dish_available = True
-            
-            for ingredient in ingredients:
-                if is_dish_available == True:
-                    if self.inventory[ingredient] == 0:
-                        print(ingredient, 'zerou')
-                        is_dish_available = False
 
-            if is_dish_available == True:
+            for ingredient in ingredients:
+                if (
+                    is_dish_available is True
+                    and self.inventory[ingredient] == 0
+                ):
+                    print(ingredient, 'zerou')
+                    is_dish_available = False
+
+            if is_dish_available is True:
                 available_dishes.add(dish)
 
         return available_dishes
